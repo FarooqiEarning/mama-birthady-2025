@@ -85,6 +85,18 @@
             'images/Pic (6).jpg'
         ];
 
+        window.addEventListener('DOMContentLoaded', () => {
+        const audio = document.getElementById('birthdaySong');
+        if (audio) {
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log('Autoplay failed. User interaction required.');
+                });
+            }
+        }
+    });
+        
         function loadImages() {
             const gallery = document.getElementById('photoGallery');
             if (!gallery) return;
@@ -135,7 +147,7 @@
             </div>
         </div>
     </section>
-
+    <audio id="birthdaySong" src="audio/h.mp3" autoplay loop></audio>
     <section id="message" class="py-16 md:py-24 bg-white bg-opacity-70 backdrop-blur-md">
         <div class="container mx-auto px-4 text-center">
             <h2
