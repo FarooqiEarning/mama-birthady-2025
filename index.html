@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
@@ -22,48 +25,126 @@
         }
 
         @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-40px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .animate-fadeInDown { animation: fadeInDown 1s ease-out forwards; }
+
+        .animate-fadeInDown {
+            animation: fadeInDown 1s ease-out forwards;
+        }
 
         @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(40px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .animate-fadeInUp { animation: fadeInUp 1s ease-out forwards; }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+        }
 
         @keyframes slideInLeft {
-            0% { opacity: 0; transform: translateX(-60px); }
-            100% { opacity: 1; transform: translateX(0); }
+            0% {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
-        .animate-slideInLeft { animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
 
         @keyframes slideInRight {
-            0% { opacity: 0; transform: translateX(60px); }
-            100% { opacity: 1; transform: translateX(0); }
+            0% {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
-        .animate-slideInRight { animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
 
         @keyframes zoomIn {
-            0% { opacity: 0; transform: scale(0.7); }
-            100% { opacity: 1; transform: scale(1); }
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
-        .animate-zoomIn { animation: zoomIn 0.7s ease-out forwards; }
+
+        .animate-zoomIn {
+            animation: zoomIn 0.7s ease-out forwards;
+        }
 
         @keyframes pulsingHeart {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-        .animate-pulsingHeart { animation: pulsingHeart 2s infinite ease-in-out; }
+            0% {
+                transform: scale(1);
+            }
 
-        .animation-delay-100 { animation-delay: 0.1s; }
-        .animation-delay-200 { animation-delay: 0.2s; }
-        .animation-delay-300 { animation-delay: 0.3s; }
-        .animation-delay-400 { animation-delay: 0.4s; }
-        .animation-delay-500 { animation-delay: 0.5s; }
-        .animation-delay-600 { animation-delay: 0.6s; }
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-pulsingHeart {
+            animation: pulsingHeart 2s infinite ease-in-out;
+        }
+
+        .animation-delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .animation-delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .animation-delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .animation-delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .animation-delay-500 {
+            animation-delay: 0.5s;
+        }
+
+        .animation-delay-600 {
+            animation-delay: 0.6s;
+        }
 
         video {
             max-width: 100%;
@@ -72,7 +153,7 @@
         }
 
         .bg-custom-gradient {
-             background-image: linear-gradient(to bottom right, #fff1f2, #f3e8ff, #e0f2fe);
+            background-image: linear-gradient(to bottom right, #fff1f2, #f3e8ff, #e0f2fe);
         }
     </style>
     <script>
@@ -85,23 +166,7 @@
             'images/Pic (6).jpg'
         ];
 
-            document.addEventListener('DOMContentLoaded', () => {
-        const audio = document.getElementById('birthdaySong');
 
-        const playAudio = () => {
-            audio.play().then(() => {
-                console.log('Audio started successfully.');
-            }).catch(err => {
-                console.warn('Playback error:', err);
-            });
-            // Only need to call once
-            document.removeEventListener('click', playAudio);
-            document.removeEventListener('touchstart', playAudio);
-        };
-
-        document.addEventListener('click', playAudio);
-        document.addEventListener('touchstart', playAudio);
-        
         function loadImages() {
             const gallery = document.getElementById('photoGallery');
             if (!gallery) return;
@@ -123,8 +188,21 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadImages();
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const playAudioButton = document.getElementById('playAudioButton');
+            if (playAudioButton) {
+                playAudioButton.addEventListener('click', () => {
+                    const audio = document.getElementById('birthdaySong');
+                    audio.play().catch(error => {
+                        console.error('Playback error:', error);
+                    });
+                });
+            }
+        });
     </script>
 </head>
+
 <body class="bg-custom-gradient text-gray-800 min-h-screen overflow-x-hidden">
 
     <header class="py-16 md:py-24 text-center relative overflow-hidden">
@@ -140,6 +218,9 @@
             wonderful person you are. Wishing you a day as beautiful as your
             heart!
         </p>
+        <button id="playAudioButton" class="bg-rose-500 text-white px-4 py-2 rounded-lg mt-4">
+        Play Birthday Song
+        </button>
     </header>
 
     <section id="photos" class="py-12 md:py-16 bg-white bg-opacity-70 backdrop-blur-md">
@@ -152,7 +233,9 @@
             </div>
         </div>
     </section>
-    
+
+    <audio id="birthdaySong" src="audio/h.mp3" loop></audio>
+
     <section id="message" class="py-16 md:py-24 bg-white bg-opacity-70 backdrop-blur-md">
         <div class="container mx-auto px-4 text-center">
             <h2
@@ -194,6 +277,6 @@
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
-<audio id="birthdaySong" src="audio/h.mp3" loop></audio>
 </body>
+
 </html>
