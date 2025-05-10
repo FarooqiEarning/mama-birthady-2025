@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Mom! - Tayyaba Qamar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .font-dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeInDown { animation: fadeInDown 1s ease-out forwards; }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeInUp { animation: fadeInUp 1s ease-out forwards; }
+
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-60px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .animate-slideInLeft { animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+
+        @keyframes slideInRight {
+            0% { opacity: 0; transform: translateX(60px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .animate-slideInRight { animation: slideInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+
+        @keyframes zoomIn {
+            0% { opacity: 0; transform: scale(0.7); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-zoomIn { animation: zoomIn 0.7s ease-out forwards; }
+
+        @keyframes pulsingHeart {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .animate-pulsingHeart { animation: pulsingHeart 2s infinite ease-in-out; }
+
+        .animation-delay-100 { animation-delay: 0.1s; }
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-300 { animation-delay: 0.3s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+        .animation-delay-500 { animation-delay: 0.5s; }
+        .animation-delay-600 { animation-delay: 0.6s; }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+        }
+
+        .bg-custom-gradient {
+             background-image: linear-gradient(to bottom right, #fff1f2, #f3e8ff, #e0f2fe);
+        }
+    </style>
+    <script>
+        const images = [
+            'images/Pic (1).jpg',
+            'images/Pic (2).jpg',
+            'images/Pic (3).jpg',
+            'images/Pic (4).jpg',
+            'images/Pic (5).jpg',
+            'images/Pic (6).jpg'
+        ];
+
+        const videoSources = [
+            'vid/%20(2).mp4',
+            'vid/%20(1).mp4'
+        ];
+
+        function loadImages() {
+            const gallery = document.getElementById('photoGallery');
+            if (!gallery) return;
+            images.forEach((src, index) => {
+                const div = document.createElement('div');
+                div.className = "rounded-xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-rose-300/50 animate-zoomIn";
+                div.style.animationDelay = `${index * 150}ms`;
+
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Memory ${index + 1} with Mom`;
+                img.className = "w-full h-72 object-cover";
+                img.onerror = () => { img.src = 'https://via.placeholder.com/600x400.png?text=Image+Unavailable'; };
+                div.appendChild(img);
+                gallery.appendChild(div);
+            });
+        }
+
+        function loadVideos() {
+            const videoContainer = document.getElementById('videoContainer');
+            if (!videoContainer) return;
+            videoSources.forEach((src, index) => {
+                const videoWrapper = document.createElement('div');
+                videoWrapper.className = "w-full md:w-[45%] rounded-xl shadow-2xl overflow-hidden bg-gray-900 animate-fadeInUp";
+                videoWrapper.style.animationDelay = `${300 + index * 200}ms`;
+
+                const videoEl = document.createElement('video');
+                videoEl.controls = true;
+                videoEl.className = "w-full h-auto aspect-video";
+                videoEl.poster = `https://via.placeholder.com/600x338.png?text=Video+Message+${index + 1}`;
+
+                const sourceEl = document.createElement('source');
+                sourceEl.src = src;
+                sourceEl.type = "video/mp4";
+                videoEl.appendChild(sourceEl);
+
+                const fallbackText = document.createElement('p');
+                fallbackText.className = "text-white p-4 text-center";
+                fallbackText.innerHTML = `Video ${index + 1}: Browser doesn't support video or video not found at <code>${src}</code>.`;
+                videoEl.appendChild(fallbackText);
+
+                videoWrapper.appendChild(videoEl);
+
+                const caption = document.createElement('p');
+                caption.className = "text-white p-3 text-center bg-gray-800 font-medium";
+                caption.textContent = `A Special Message ${index + 1}`;
+                videoWrapper.appendChild(caption);
+
+                videoContainer.appendChild(videoWrapper);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadImages();
+            loadVideos();
+        });
+    </script>
+</head>
+<body class="bg-custom-gradient text-gray-800 min-h-screen overflow-x-hidden">
+
+    <header class="py-16 md:py-24 text-center relative overflow-hidden">
+        <h1 class="text-5xl md:text-7xl font-dancing-script font-bold text-rose-600 animate-fadeInDown drop-shadow-md">
+            Happy Birthday, Dearest Mom!
+        </h1>
+        <p
+            class="text-3xl md:text-5xl mt-4 font-semibold text-purple-700 animate-fadeInUp animation-delay-300 drop-shadow-sm font-dancing-script">
+            Tayyaba Qamar
+        </p>
+        <p class="mt-8 text-lg md:text-xl text-gray-700 max-w-2xl mx-auto px-4 animate-fadeInUp animation-delay-600">
+            Today, we celebrate you – your love, your strength, and the
+            wonderful person you are. Wishing you a day as beautiful as your
+            heart!
+        </p>
+    </header>
+
+    <section id="photos" class="py-12 md:py-16 bg-white bg-opacity-70 backdrop-blur-md">
+        <div class="container mx-auto px-4">
+            <h2
+                class="text-4xl md:text-5xl font-semibold text-center text-rose-700 mb-10 md:mb-14 animate-slideInLeft font-dancing-script">
+                A Walk Down Memory Lane
+            </h2>
+            <div id="photoGallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <h2
+                class="text-4xl md:text-5xl font-semibold text-center text-purple-700 mb-10 md:mb-14 animate-slideInRight font-dancing-script">
+                Special Video Messages
+            </h2>
+            <div id="videoContainer" class="flex flex-col md:flex-row justify-around items-center gap-8 md:gap-12">
+            </div>
+        </div>
+    </section>
+
+    <section id="message" class="py-16 md:py-24 bg-white bg-opacity-70 backdrop-blur-md">
+        <div class="container mx-auto px-4 text-center">
+            <h2
+                class="text-4xl md:text-5xl font-semibold text-rose-700 mb-8 animate-fadeInUp animation-delay-200 font-dancing-script">
+                Our Loving Words
+            </h2>
+            <p
+                class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed animate-fadeInUp animation-delay-500">
+                Mom, your love is the guiding light of our lives. Your
+                sacrifices, your endless support, and your unconditional
+                love have shaped us into who we are today.
+                Thank you for every hug, every lesson, and every beautiful
+                memory. We are incredibly blessed to have you.
+                May your birthday be filled with all the joy, peace, and
+                happiness you deserve. We love you to the moon and back!
+            </p>
+            <div class="mt-12 animate-pulsingHeart">
+                <svg class="w-16 h-16 text-rose-500 mx-auto" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-rose-200 bg-opacity-50 bg-white">
+        <p class="text-gray-700">
+            Crafted with immense love for the most amazing Mom, Tayyaba
+            Qamar.
+        </p>
+        <p class="text-sm text-gray-500 mt-2">
+            &copy; <span id="currentYear"></span> Muhammad Gohar
+        </p>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
