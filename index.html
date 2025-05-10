@@ -85,11 +85,6 @@
             'images/Pic (6).jpg'
         ];
 
-        const videoSources = [
-            'https://drive.google.com/uc?id=1SVsHwrpQbkP-qHONsI9sXlo-22jS-vht',
-            'https://drive.google.com/uc?id=1KIhANTanmfW5UGQoagt8k07zNNQTfntY'
-        ];
-
         function loadImages() {
             const gallery = document.getElementById('photoGallery');
             if (!gallery) return;
@@ -108,43 +103,8 @@
             });
         }
 
-        function loadVideos() {
-            const videoContainer = document.getElementById('videoContainer');
-            if (!videoContainer) return;
-            videoSources.forEach((src, index) => {
-                const videoWrapper = document.createElement('div');
-                videoWrapper.className = "w-full md:w-[45%] rounded-xl shadow-2xl overflow-hidden bg-gray-900 animate-fadeInUp";
-                videoWrapper.style.animationDelay = `${300 + index * 200}ms`;
-
-                const videoEl = document.createElement('video');
-                videoEl.controls = true;
-                videoEl.className = "w-full h-auto aspect-video";
-                videoEl.poster = `https://via.placeholder.com/600x338.png?text=Video+Message+${index + 1}`;
-
-                const sourceEl = document.createElement('source');
-                sourceEl.src = src;
-                sourceEl.type = "video/mp4";
-                videoEl.appendChild(sourceEl);
-
-                const fallbackText = document.createElement('p');
-                fallbackText.className = "text-white p-4 text-center";
-                fallbackText.innerHTML = `Video ${index + 1}: Browser doesn't support video or video not found at <code>${src}</code>.`;
-                videoEl.appendChild(fallbackText);
-
-                videoWrapper.appendChild(videoEl);
-
-                const caption = document.createElement('p');
-                caption.className = "text-white p-3 text-center bg-gray-800 font-medium";
-                caption.textContent = `A Special Message ${index + 1}`;
-                videoWrapper.appendChild(caption);
-
-                videoContainer.appendChild(videoWrapper);
-            });
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             loadImages();
-            loadVideos();
         });
     </script>
 </head>
@@ -172,19 +132,6 @@
                 A Walk Down Memory Lane
             </h2>
             <div id="photoGallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-            </div>
-        </div>
-    </section>
-
-    <section id="videos" class="py-12 md:py-16">
-        <div class="container mx-auto px-4">
-            <h2
-                class="text-4xl md:text-5xl font-semibold text-center text-purple-700 mb-10 md:mb-14 animate-slideInRight font-dancing-script">
-                Special Video Messages
-            </h2>
-            <video width="320" height="240" controls>
-              <source src="http://drive.google.com/uc?id=1SVsHwrpQbkP-qHONsI9sXlo-22jS-vht" type="video/mp4">
-            </video>
             </div>
         </div>
     </section>
